@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .container {
+        display: block;
+        margin: 0 auto;
+        width: 300px;
+        height: 300px;
+      }
+      .container .clock {
+        min-width: 200px;
+        min-height: 200px;
+        width: 100%;
+        height: 100%;
+        background-color: #eccfbb;
+        border-radius: 100%;
+        border: solid 30px #736637cc;
+        box-shadow: 0px 0px 20px 10px #a0a0a0;
+        position: relative;
+      }
+      .container .clock .inner {
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+        border: solid 4px #0c0c0ccc;
+        box-shadow: inset 0 0 18px 9px #756d6d;
+        position: absolute;
+        z-index: 20;
+        top: 0px;
+        left: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .container .clock .inner .point {
+        width: 5%;
+        height: 5%;
+        border-radius: 100%;
+        background-color: #000000;
+        position: absolute;
+        z-index: 12;
+        box-shadow: 0 0 0 3px #eccfbb;
+      }
+      .container .clock .inner .hands {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+      }
+      .container .clock .inner #sec,
+      .container .clock .inner #min,
+      .container .clock .inner #hrs {
+        position: absolute;
+        box-shadow: 4px 6px 4px 1px #736c6c80;
+      }
+      .container .clock .inner #sec {
+        width: 7px;
+        height: calc(var(--clock-height) / 2.5);
+        transform: rotate(360deg);
+        background-color: #212020;
+        transform-origin: bottom;
+       /*  transition: 0.2s; */
+        z-index: 11;
+      }
+      .container .clock .inner #min {
+        width: 7px;
+        height: calc(var(--clock-height) / 3.2);
+        transform: rotate(180deg);
+        background-color: #f5eeee;
+        transform-origin: bottom;
+        z-index: 10;
+      }
+      .container .clock .inner #hrs {
+        z-index: 9;
+        width: 7px;
+        height: calc(var(--clock-height) / 4);
+        transform: rotate(255deg);
+        background-color: #a73737;
+        transform-origin: bottom;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="clock" id="clock">
+        <div class="inner">
+          <div class="hands">
+            <div id="sec"></div>
+            <div id="min"></div>
+            <div id="hrs"></div>
+          </div>
+          <div class="point"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="scripts/app.js" type="module"></script>
+  </body>
+</html>
